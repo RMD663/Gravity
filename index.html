@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <style src="style.css"></style>
+  <script src="p5.js"></script>
+  <script src="utils.js"></script>
+  <script src="camera.js"></script>
+  <script src="body.js"></script>
+  <script src="core.js"></script>
+  <script src="sketch.js"></script>
+</head>
+
+<body>
+  <div class="simulation_controler">
+    <div class="menu_section_title">Simulation</div>
+    <input id="sim_name" placeholder="Simulation name">
+    <button onclick="save_simulation()">SAVE SIMULATION</button>
+    <button onclick="load_simulation()" class="secondary-btn">LOAD SIMULATION</button>
+    <button onclick="clear_bodies()" class="secondary-btn">CLEAR</button>
+
+    <div class="menu_section_title">Create Body</div>
+    <input id="planet_pos_x" placeholder="X=0">
+    <input id="planet_pos_y" placeholder="Y=0">
+    <input id="planet_rad" placeholder="R=1">
+    <input id="planet_col" placeholder="Color">
+    <input id="planet_mass" placeholder="Mass">
+    <button onclick="create_body()">CREATE</button>
+
+    <div class="menu_section_title">Camera</div>
+    <input id="cam_pos_x" type="number" placeholder="X=0">
+    <input id="cam_pos_y" type="number" placeholder="Y=0">
+    <button onclick="move_camera()">MOVE</button>
+  </div>
+
+  <main></main>
+</body>
+
+
+</html>

@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background-color: #0d1117;    
+    color: #c9d1d9;                
+    display: flex;
+}
+
+.simulation_controler, 
+.menu_create, 
+.menu_camera {
+    width: 260px;
+    padding: 20px;
+    background-color: #161b22;    
+    border-right: 1px solid #30363d;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.simulation_controler input,
+.menu_create input,
+.menu_camera input {
+    background-color: #0d1117;
+    color: #c9d1d9;
+    border: 1px solid #30363d;
+    padding: 8px;
+    border-radius: 6px;
+}
+
+.simulation_controler button,
+.menu_create button,
+.menu_camera button {
+    background-color: #238636;   
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.simulation_controler button:hover,
+.menu_create button:hover,
+.menu_camera button:hover {
+    background-color: #2ea043;
+}
+
+.simulation_controler .secondary-btn {
+    background-color: #21262d;
+    color: #c9d1d9;
+    border: 1px solid #30363d;
+}
+
+.simulation_controler .secondary-btn:hover {
+    background-color: #30363d;
+}
+
+main {
+    width: 100%;
+    padding: 20px;
+}
+
+.menu_section_title {
+    font-weight: bold;
+    margin-top: 10px;
+    color: #8b949e;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
