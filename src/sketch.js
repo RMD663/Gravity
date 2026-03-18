@@ -5,6 +5,8 @@ let camera;
 let show_fps = true;
 let sim_core;
 let cam;
+let timer = 0;
+
 
 function setup() {
   createCanvas(500, 500, WEBGL);
@@ -21,7 +23,7 @@ function setup() {
   sim_core.addBody(sun);
   sim_core.addBody(earth);
 
-  frameRate(60);
+  frameRate(60.0);
 }
 
 function draw() {
@@ -29,8 +31,7 @@ function draw() {
   sim_core.render();
   sim_core.update();
   keyPressed();
-  camera.drawFPS(true)
-  camera.drawCordinates()
+  camera.drawStatus();
 }
 
 function mousePressed(){

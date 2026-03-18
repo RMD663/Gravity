@@ -3,17 +3,21 @@ class Camera {
     constructor(){
         this.current_pos = createVector(cam.eyeX, cam.eyeY)
         this.view = cam;
+        this.show_stats = true;
     }
 
-
-    drawFPS(_show_fps){
+    drawStatus(){
         if(cam){
-        if(_show_fps){
-        fill("white")
-        text(frameRate().toFixed(2), cam.eyeX - 249, cam.eyeY - 230)
+        if(this.show_stats){
+            this.drawFPS();
+            this.drawCordinates();
         }}
     }
 
+    drawFPS(){
+        fill("white")
+        text("FPS:" + frameRate().toFixed(2), cam.eyeX - 249, cam.eyeY - 230)
+    }
     drawCordinates(){
         if(cam){
             fill("white")
@@ -23,6 +27,4 @@ class Camera {
             text(cam.eyeY,  cam.eyeX - 220, cam.eyeY - 190)
         }
     }
-
-
 }

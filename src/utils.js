@@ -88,3 +88,7 @@ function move_camera(){
     }
 
 }
+
+function hide_stats() {
+    camera.show_stats = !camera.show_stats;
+}
