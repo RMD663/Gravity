@@ -1,5 +1,5 @@
 const GRAVITY = 10;
-const SUN_MASS = 10;
+const SUN_MASS = 30;
 let fontMonogram;
 let camera;
 let show_fps = true;
@@ -32,10 +32,6 @@ function draw() {
   sim_core.update();
   keyPressed();
   camera.drawStatus();
-}
-
-function mousePressed(){
-  //cam.move(mouseX, mouseY, 0)
 }
 
 function keyPressed(){

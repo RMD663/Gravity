@@ -6,7 +6,7 @@ class Body{
     this._color = _color;
     this.velocity = createVector(0, 0);
     this.trail = [];
-    this.trailLen = 50;
+    this.trailLen = 35;
 
     for (let i=0; i < this.trailLen; i++){
       let point = createVector(this.position.x, this.position.y);
@@ -47,7 +47,7 @@ class Body{
     if(dist(this.position.x, this.position.y, cam.eyeX, cam.eyeY) < 500){
     this.trail.shift()
 
-    if(this.position !== this.velocity + this.position){
+    if(this.velocity.magSq() > 0.01){
     let point = createVector(this.position.x, this.position.y)
     this.trail.push(point)
     }
