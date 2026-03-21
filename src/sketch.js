@@ -1,25 +1,27 @@
 const GRAVITY = 10;
 const SUN_MASS = 30;
-let fontMonogram;
+
 let camera;
-let show_fps = true;
 let sim_core;
 let cam;
-let timer = 0;
 
 
 function setup() {
   createCanvas(500, 500, WEBGL);
+  
   cam = createCamera();
   camera = new Camera();
-  fontMonogram = loadFont('assets/monogram.ttf')
+
+  let fontMonogram = loadFont('assets/monogram.ttf');
   textFont(fontMonogram);
   textSize(32);
   sim_core = new Core();
-  keyPressed()
+  
   let sun = new Body(0, 0, 30, "yellow", SUN_MASS);
   let earth = new Body(70, 10, 10, "blue", 5);
+  
   earth.velocity.y = 2;
+
   sim_core.addBody(sun);
   sim_core.addBody(earth);
 
@@ -36,20 +38,24 @@ function draw() {
 
 function keyPressed(){
   if(keyIsPressed === true){
-    let dir_x = 0
-    let dir_y = 0
+    let dir_x = 0;
+    let dir_y = 0;
     if(keyCode === LEFT_ARROW){
-      dir_x = -1
+      dir_x = -1;
     }
      if(keyCode === RIGHT_ARROW){
-      dir_x = 1
+      dir_x = 1;
     }
      if(keyCode === UP_ARROW){
-      dir_y = -1
+      dir_y = -1;
     }
      if(keyCode === DOWN_ARROW){
-      dir_y = 1
+      dir_y = 1;
     }
-    cam.move(dir_x, dir_y, 0)
+    
+    // let new_body = new Body(Math.random() * 100, Math.random() * 100, Math.random() * 15, "red", Math.random() * 50);
+    // sim_core.addBody(new_body);
+
+    cam.move(dir_x, dir_y, 0);
   }
 }

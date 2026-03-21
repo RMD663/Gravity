@@ -33,4 +33,8 @@ update(dt) {
         bodyA.attract(bodyB);
     }
 
+    get_active_bodies() {
+        return bodies.length;
+    }
+
 }
