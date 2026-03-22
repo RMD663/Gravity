@@ -84,7 +84,7 @@ function create_body(){
             return;
     } else {
         new_body = new Body(x_pos, y_pos, radius, col, mass);
-        new_body.velocity.y = inertia ? 0 : 0;
+        new_body.velocity.y = inertia;
         bodies.push(new_body);
     }
 }
