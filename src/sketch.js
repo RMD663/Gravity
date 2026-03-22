@@ -29,7 +29,7 @@ function setup() {
 }
 
 function draw() {
-  background(1);
+  background(0);
   sim_core.render();
   sim_core.update();
   keyPressed();
@@ -52,10 +52,6 @@ function keyPressed(){
      if(keyCode === DOWN_ARROW){
       dir_y = 1;
     }
-    
-    // let new_body = new Body(Math.random() * 100, Math.random() * 100, Math.random() * 15, "red", Math.random() * 50);
-    // sim_core.addBody(new_body);
-
     cam.move(dir_x, dir_y, 0);
   }
 }

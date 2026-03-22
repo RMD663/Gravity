@@ -1,30 +1,57 @@
 const objects = []; 
 
 function save_simulation() {
-
     objects.length = 0;
-    
+    let simulation_name = document.getElementById("sim_name").value;
+
     for (let item of bodies) {
 
         objects.push(JSON.stringify(item));
     }
-
-    localStorage.setItem('simulation', JSON.stringify(objects));
+    
+    localStorage.setItem(simulation_name, JSON.stringify(objects));
 }
 
 
 function load_simulation(){
-    const load_objects  = localStorage.getItem("simulation");
+    const simulation_name = document.getElementById("sim_name").value;
+    const load_objects  = localStorage.getItem(simulation_name);
     let parsed_objects = JSON.parse(load_objects);
     bodies.length = 0;
     for(let item = 0; item < parsed_objects.length; item += 1){
         let obj = parsed_objects[item];
         const body = JSON.parse(obj);
         let new_body = new Body(body.position.x, body.position.y, body.radius, body._color, body.mass);
-        new_body.velocity = body.velocity;
+        new_body.velocity = createVector(body.velocity.x, body.velocity.y);
         bodies.push(new_body);
     }
     
+}
+
+function list_saves(){
+    let save_list = get_saves();
+    
+    const select = document.getElementById("save_list");
+
+    for(let i = 0; i < save_list.length; i++){
+        const opt = document.createElement("option"); 
+        opt.value = save_list[i];
+        opt.innerHTML = save_list[i];
+        select.appendChild(opt);
+    }
+}
+
+function get_saves(){
+    let saves = [];
+
+    for(let i = 0; i < localStorage.length; i++){
+        const storage_key = localStorage.key(i); 
+        saves.push(localStorage.getItem(storage_key));
+    }
+    
+    print(saves[0])
+
+    return saves
 }
 
 function clear_bodies() {
@@ -57,7 +84,7 @@ function create_body(){
             return;
     } else {
         new_body = new Body(x_pos, y_pos, radius, col, mass);
-        new_body.velocity.y = inertia;
+        new_body.velocity.y = inertia ? 0 : 0;
         bodies.push(new_body);
     }
 }

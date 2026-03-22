@@ -1,73 +1,94 @@
+:root {
+    --bg-main: #0f0a0a;           
+    --bg-sidebar: #1a1111;        
+    --accent-red: #da3633;        
+    --accent-hover: #f85149;    
+    --border-color: #3e2c2c;      
+    --text-primary: #f0f6fc;     
+    --text-secondary: #8b949e;   
+    --btn-secondary: #21262d;    
+}
+
 body {
     margin: 0;
     padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    background-color: #0d1117;    
-    color: #c9d1d9;                
+    background-color: var(--bg-main);
+    color: var(--text-primary);
     display: flex;
+    min-height: 100vh;
 }
+
 
 .simulation_controler, 
 .menu_create, 
 .menu_camera {
     width: 260px;
-    padding: 20px;
-    background-color: #161b22;    
-    border-right: 1px solid #30363d;
+    padding: 24px 20px;
+    background-color: var(--bg-sidebar);
+    border-right: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.3); 
 }
-
 .simulation_controler input,
 .menu_create input,
 .menu_camera input {
-    background-color: #0d1117;
-    color: #c9d1d9;
-    border: 1px solid #30363d;
-    padding: 8px;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 10px;
     border-radius: 6px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.simulation_controler input:focus {
+    border-color: var(--accent-red);
 }
 
 .simulation_controler button,
 .menu_create button,
 .menu_camera button {
-    background-color: #238636;   
+    background-color: var(--accent-red);
     color: white;
     border: none;
-    padding: 8px;
+    padding: 10px;
     border-radius: 6px;
     cursor: pointer;
     font-weight: 600;
-    transition: background-color 0.2s;
+    transition: all 0.2s ease;
 }
 
 .simulation_controler button:hover,
 .menu_create button:hover,
 .menu_camera button:hover {
-    background-color: #2ea043;
+    background-color: var(--accent-hover);
+    transform: translateY(-1px); 
 }
 
 .simulation_controler .secondary-btn {
-    background-color: #21262d;
-    color: #c9d1d9;
-    border: 1px solid #30363d;
+    background-color: var(--btn-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
 }
 
 .simulation_controler .secondary-btn:hover {
     background-color: #30363d;
+    border-color: var(--text-secondary);
 }
 
 main {
-    width: 100%;
-    padding: 20px;
+    flex-grow: 1;
+    padding: 30px;
 }
 
 .menu_section_title {
     font-weight: bold;
-    margin-top: 10px;
-    color: #8b949e;
+    margin-top: 15px;
+    color: #e5534b; 
     text-transform: uppercase;
-    font-size: 12px;
-    letter-spacing: 1px;
+    font-size: 11px;
+    letter-spacing: 1.2px;
 }
